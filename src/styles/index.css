@@ -2,6 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom styles for browser autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  /* Ensure border matches non-autofilled state (Tailwind gray-300) */
+  border: 1px solid #D1D5DB; 
+  /* Set text color to match non-autofilled state (Tailwind gray-700) */
+  -webkit-text-fill-color: #374151;
+  /* White inset shadow to cover the browser's default background */
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  /* Optional: Long transition delay to trick browser background */
+  transition: background-color 5000s ease-in-out 0s; 
+  /* Optional: Ensure caret color matches text */
+  /* caret-color: #374151; */
+}
+
+/* Custom Hover Effect for Nav/Footer Links */
+.nav-link-hover {
+  position: relative; /* Base for pseudo-element */
+  display: inline-block;
+  text-decoration: none; /* Remove default underlines */
+  padding-bottom: 3px; /* Space for the growing line */
+  color: #D1D5DB; /* Base color (Tailwind gray-300) */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  width: 0; /* Start with no width */
+  height: 1.5px; /* Line thickness */
+  display: block;
+  margin-top: 2px; /* Space below text */
+  right: 0; /* Start animation from the right */
+  background: #FEF8E7; /* Line color (light theme color) */
+  transition: width 0.3s ease; /* Animate width */
+  -webkit-transition: width 0.3s ease;
+}
+
+.nav-link-hover:hover {
+  color: #FFFFFF; /* Brighten text on hover */
+}
+
+.nav-link-hover:hover::after {
+  width: 100%; /* Expand line to full width */
+  left: 0; /* Animate from left to right */
+  background: #FEF8E7;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -28,8 +83,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
