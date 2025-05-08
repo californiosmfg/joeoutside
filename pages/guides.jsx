@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
+/*global process*/
+import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 

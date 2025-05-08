@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/router'; // Changed from react-router-dom
+// import { useRouter } from 'next/router'; // Changed from react-router-dom - REMOVED
 
 function GearReviewsPage() { // Renamed component
   const pageName = "Gear Reviews";

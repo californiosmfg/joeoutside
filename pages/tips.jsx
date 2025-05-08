@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/router'; // Changed from react-router-dom
+// import { useRouter } from 'next/router'; // Changed from react-router-dom - REMOVED
 
 function TipsPage() { // Renamed component
   // In Next.js, for a static page like /tips, the pathname is fixed.
