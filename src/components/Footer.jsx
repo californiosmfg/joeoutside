@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import Link from 'next/link'; // Changed from react-router-dom
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,9 +25,9 @@ function Footer() {
             <div className="mb-6 md:mb-0">
               <h4 className="font-semibold uppercase tracking-wider text-white mb-3">Navigation</h4>
               <ul className="space-y-2">
-                <li><Link to="/" className="font-medium nav-link-hover">Home</Link></li>
-                <li><Link to="/info" className="font-medium nav-link-hover">Info</Link></li>
-                <li><Link to="/contact" className="font-medium nav-link-hover">Contact</Link></li>
+                <li><Link href="/" legacyBehavior><a className="font-medium nav-link-hover">Home</a></Link></li>
+                <li><Link href="/info" legacyBehavior><a className="font-medium nav-link-hover">Info</a></Link></li>
+                <li><Link href="/contact" legacyBehavior><a className="font-medium nav-link-hover">Contact</a></Link></li>
               </ul>
             </div>
 
@@ -35,10 +35,10 @@ function Footer() {
             <div className="mb-6 md:mb-0">
               <h4 className="font-semibold uppercase tracking-wider text-white mb-3">Resources</h4>
               <ul className="space-y-2">
-                <li><Link to="/guides" className="font-medium nav-link-hover">Guides</Link></li>
-                <li><Link to="/tips" className="font-medium nav-link-hover">Tips & Tricks</Link></li>
-                <li><Link to="/gear-reviews" className="font-medium nav-link-hover">Gear Reviews</Link></li>
-                <li><Link to="/newsletter" className="font-medium nav-link-hover">Newsletter</Link></li>
+                <li><Link href="/guides" legacyBehavior><a className="font-medium nav-link-hover">Guides</a></Link></li>
+                <li><Link href="/tips" legacyBehavior><a className="font-medium nav-link-hover">Tips & Tricks</a></Link></li>
+                <li><Link href="/gear-reviews" legacyBehavior><a className="font-medium nav-link-hover">Gear Reviews</a></Link></li>
+                <li><Link href="/newsletter" legacyBehavior><a className="font-medium nav-link-hover">Newsletter</a></Link></li>
               </ul>
             </div>
 

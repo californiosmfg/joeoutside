@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -7,7 +8,7 @@ function Navbar() {
   const searchInputRef = useRef(null);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const closeResourcesTimeoutRef = useRef(null);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     if (isSearchOpen) {
@@ -32,7 +33,7 @@ function Navbar() {
       const query = searchQuery.trim();
       setIsSearchOpen(false);
       setSearchQuery('');
-      navigate(`/search?q=${encodeURIComponent(query)}`);
+      router.push(`/search?q=${encodeURIComponent(query)}`);
     }
   };
 
@@ -52,8 +53,8 @@ function Navbar() {
       <div className="container mx-auto flex justify-end items-center px-4 sm:px-6 lg:px-8">
         <div className="flex items-center"> 
           <div className="flex items-center space-x-8">
-            <Link to="/" className="text-lg font-medium nav-link-hover">Home</Link>
-            <Link to="/info" className="text-lg font-medium nav-link-hover">Info</Link>
+            <Link href="/" legacyBehavior><a className="text-lg font-medium nav-link-hover">Home</a></Link>
+            <Link href="/info" legacyBehavior><a className="text-lg font-medium nav-link-hover">Info</a></Link>
             
             <div 
               className="relative" 
@@ -70,16 +71,16 @@ function Navbar() {
                   onMouseLeave={handleResourcesMouseLeave}
                 >
                   <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                    <Link to="/guides" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Guides</Link>
-                    <Link to="/tips" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Tips & Tricks</Link>
-                    <Link to="/gear-reviews" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Gear Reviews</Link>
-                    <Link to="/newsletter" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Newsletter</Link>
+                    <Link href="/guides" legacyBehavior><a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Guides</a></Link>
+                    <Link href="/tips" legacyBehavior><a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Tips & Tricks</a></Link>
+                    <Link href="/gear-reviews" legacyBehavior><a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Gear Reviews</a></Link>
+                    <Link href="/newsletter" legacyBehavior><a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Newsletter</a></Link>
                   </div>
                 </div>
               )}
             </div>
 
-            <Link to="/contact" className="text-lg font-medium nav-link-hover">Contact</Link>
+            <Link href="/contact" legacyBehavior><a className="text-lg font-medium nav-link-hover">Contact</a></Link>
           </div>
           
           <div className="flex items-center space-x-2 ml-6">

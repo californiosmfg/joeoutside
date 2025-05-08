@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 // --- Simulated Site Content Data ---
 // (In a real app, this would come from an API or search index)
@@ -54,8 +55,8 @@ const highlightText = (text, query) => {
 };
 
 function SearchResultsPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('q') || '';
+  const router = useRouter();
+  const query = router.query.q || '';
   const [results, setResults] = useState([]);
   const [localQuery, setLocalQuery] = useState(query);
 
@@ -90,9 +91,9 @@ function SearchResultsPage() {
     e.preventDefault();
     const newQuery = localQuery.trim();
     if (newQuery) {
-      setSearchParams({ q: newQuery });
+      router.push(`/search?q=${encodeURIComponent(newQuery)}`);
     } else {
-      setSearchParams({});
+      router.push('/search');
     }
   };
 
@@ -128,15 +129,17 @@ function SearchResultsPage() {
                   return (
                     <li key={result.path} className="border-b border-gray-300 pb-4">
                       <Link 
-                        to={result.path} 
-                        className="block hover:bg-gray-50/50 p-2 -m-2 rounded-md transition-colors"
+                        href={result.path}
+                        legacyBehavior
                       >
-                        <h3 className="text-xl font-semibold text-[#2A5041]">
-                          {result.title}
-                        </h3>
-                        <p className="text-sm text-gray-600 mt-1">
-                          {highlightText(snippet, query)}
-                        </p>
+                        <a className="block hover:bg-gray-50/50 p-2 -m-2 rounded-md transition-colors">
+                          <h3 className="text-xl font-semibold text-[#2A5041]">
+                            {result.title}
+                          </h3>
+                          <p className="text-sm text-gray-600 mt-1">
+                            {highlightText(snippet, query)}
+                          </p>
+                        </a>
                       </Link>
                     </li>
                   );

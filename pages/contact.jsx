@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 function ContactPage() {
   const formSubmitEndpoint = "https://formsubmit.co/contact@californiosmfg.com";
-  const location = useLocation();
+  const router = useRouter();
   
   const [formData, setFormData] = useState({
     name: '',
@@ -15,12 +15,11 @@ function ContactPage() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    if (queryParams.get('submitted') === 'true') {
+    if (router.query.submitted === 'true') {
       setShowSuccessMessage(true);
-      window.history.replaceState(null, '', location.pathname);
+      router.replace(router.pathname, undefined, { shallow: true });
     }
-  }, [location.search, location.pathname]);
+  }, [router.query, router.pathname, router]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -113,7 +112,7 @@ function ContactPage() {
               <input 
                 type="hidden" 
                 name="_next" 
-                value="http://localhost:5174/contact?submitted=true" 
+                value="http://localhost:3000/contact?submitted=true" 
               />
 
               {/* Display Success Message if redirected */}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Keep Link if we add buttons back
+import Link from 'next/link'; // Changed
 
 function HomePage() {
   return (
@@ -25,16 +25,16 @@ function HomePage() {
               <div className="space-y-4 md:space-y-0 md:space-x-4">
                 {/* Example Service Button (optional) */}
                 {/* <Link 
-                  to="/guides"
-                  className="inline-block bg-[#A13C20] text-[#FEF8E7] font-bold py-3 px-8 rounded hover:bg-[#8a331a] transition duration-300"
+                  href="/guides" // Changed
+                  legacyBehavior // Added
                 >
-                  Explore Guides
+                  <a className="inline-block bg-[#A13C20] text-[#FEF8E7] font-bold py-3 px-8 rounded hover:bg-[#8a331a] transition duration-300">Explore Guides</a>
                 </Link> */}
                 <Link 
-                  to="/contact" 
-                  className="inline-block bg-transparent text-[#A13C20] font-semibold hover:text-white hover:bg-[#A13C20] py-3 px-8 border border-[#A13C20] hover:border-transparent rounded transition duration-300"
+                  href="/contact" // Changed
+                  legacyBehavior // Added
                 >
-                  Contact Us
+                  <a className="inline-block bg-transparent text-[#A13C20] font-semibold hover:text-white hover:bg-[#A13C20] py-3 px-8 border border-[#A13C20] hover:border-transparent rounded transition duration-300">Contact Us</a>
                 </Link>
               </div>
             </div>
@@ -81,10 +81,10 @@ function HomePage() {
             Check out our latest guides and tips.
           </p>
           <Link 
-            to="/contact" 
-            className="inline-block bg-[#2A5041] text-[#FEF8E7] font-bold py-4 px-10 rounded-lg hover:bg-[#1e3a2f] transition duration-300 shadow hover:shadow-md text-lg"
+            href="/contact" // Changed
+            legacyBehavior // Added
           >
-            Get In Touch
+            <a className="inline-block bg-[#2A5041] text-[#FEF8E7] font-bold py-4 px-10 rounded-lg hover:bg-[#1e3a2f] transition duration-300 shadow hover:shadow-md text-lg">Get In Touch</a>
           </Link>
         </div>
       </section>
