@@ -1,6 +1,7 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 // --- Simulated Site Content Data ---
 // (In a real app, this would come from an API or search index)
@@ -56,7 +57,8 @@ const highlightText = (text, query) => {
 
 function SearchResultsPage() {
   const router = useRouter();
-  const query = router.query.q || '';
+  const searchParams = useSearchParams();
+  const query = searchParams.get('q') || '';
   const [results, setResults] = useState([]);
   const [localQuery, setLocalQuery] = useState(query);
 

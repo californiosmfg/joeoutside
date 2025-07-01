@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-function ContactPage() {
+export default function ContactPage() {
   const formSubmitEndpoint = "https://formsubmit.co/contact@californiosmfg.com";
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -143,5 +143,3 @@ function ContactPage() {
     </div>
   );
 }
-
-export default ContactPage; 
