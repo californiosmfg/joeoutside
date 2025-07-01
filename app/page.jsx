@@ -23,7 +23,7 @@ export default function HomePage() {
                   href="/contact"
                   legacyBehavior
                 >
-                  <a className="inline-block bg-transparent text-[#A13C20] font-semibold hover:text-white hover:bg-[#A13C20] py-3 px-8 border border-[#A13C20] hover:border-transparent rounded transition duration-300">Contact Us</a>
+                  <a className="inline-block bg-transparent text-[#A13C20] font-semibold hover:text-white hover:bg-[#A13C20] py-3 px-8 border border-[#A13C20] hover:border-transparent rounded transition duration-300">Start Your Project</a>
                 </Link>
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function HomePage() {
             href="/contact"
             legacyBehavior
           >
-            <a className="inline-block bg-[#2A5041] text-[#FEF8E7] font-bold py-4 px-10 rounded-lg hover:bg-[#1e3a2f] transition duration-300 shadow hover:shadow-md text-lg">Get In Touch</a>
+            <a className="inline-block bg-[#2A5041] text-[#FEF8E7] font-bold py-4 px-10 rounded-lg hover:bg-[#1e3a2f] transition duration-300 shadow hover:shadow-md text-lg">Get a Quote Today</a>
           </Link>
         </div>
       </section>
