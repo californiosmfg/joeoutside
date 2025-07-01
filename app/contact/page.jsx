@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+"use client";
+export const dynamic = 'force-dynamic';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
-function ContactPage() {
+function ContactContent() {
   const formSubmitEndpoint = "https://formsubmit.co/contact@californiosmfg.com";
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const submittedParam = searchParams.get('submitted');
   
   const [formData, setFormData] = useState({
     name: '',
@@ -15,11 +19,11 @@ function ContactPage() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
-    if (router.query.submitted === 'true') {
+    if (submittedParam === 'true') {
       setShowSuccessMessage(true);
-      router.replace(router.pathname, undefined, { shallow: true });
+      router.replace('/contact');
     }
-  }, [router.query, router.pathname, router]);
+  }, [submittedParam, router]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -141,4 +145,10 @@ function ContactPage() {
   );
 }
 
-export default ContactPage; 
+export default function ContactPage() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
+      <ContactContent />
+    </Suspense>
+  );
+}

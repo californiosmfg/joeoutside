@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
