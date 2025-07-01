@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+export const dynamic = 'force-dynamic';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -30,7 +31,7 @@ const highlightText = (text, query) => {
   );
 };
 
-export default function SearchResultsPage() {
+function SearchResultsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
@@ -107,5 +108,13 @@ export default function SearchResultsPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function SearchResultsPage() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
+      <SearchResultsContent />
+    </Suspense>
   );
 }

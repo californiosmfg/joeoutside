@@ -1,8 +1,9 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+export const dynamic = 'force-dynamic';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function ContactPage() {
+function ContactContent() {
   const formSubmitEndpoint = "https://formsubmit.co/contact@californiosmfg.com";
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -141,5 +142,13 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
+      <ContactContent />
+    </Suspense>
   );
 }
