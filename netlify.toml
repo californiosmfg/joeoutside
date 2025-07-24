@@ -1,8 +1,7 @@
 [build]
-  command = "npm run build" # or just "next build"
+  command = "npm run build"
   publish = ".next"
 
-# This plugin is usually installed automatically by Netlify for Next.js sites
-# but explicitly adding it can ensure consistent behavior.
 [[plugins]]
-  package = "@netlify/plugin-nextjs" 
+  package = "@netlify/plugin-nextjs"
+
