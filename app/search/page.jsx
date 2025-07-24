@@ -11,7 +11,10 @@ const siteContent = [
   { path: '/contact', title: 'Contact', content: 'contact get in touch information have question suggestion need help guides fill form reach out details below aim respond business days location outdoor trail adventure city email us address message name subject send' },
   { path: '/guides', title: 'Guides', content: 'guides placeholder page under construction outdoor hiking camping survival skills' },
   { path: '/tips', title: 'Tips & Tricks', content: 'tips tricks placeholder page under construction outdoor quick advice hacks knowledge common challenges' },
-  { path: '/gear-reviews', title: 'Gear Reviews', content: 'gear reviews placeholder page under construction outdoor equipment unbiased assessments tents backpacks boots stoves' },
+  { path: '/gear-reviews', title: 'Gear Reviews', content: 'reviews of outdoor equipment tents backpacks boots stoves ultralight camp stove hiking boots' },
+  { path: '/gear-reviews/ultralight-tent', title: 'Ultralight Backpacking Tent', content: 'lightweight two person tent review fastpacking thru-hiking quick setup single trekking pole' },
+  { path: '/gear-reviews/hiking-boots', title: 'All-Terrain Hiking Boots', content: 'durable waterproof hiking boots traction rocky trails wet conditions review' },
+  { path: '/gear-reviews/camp-stove', title: 'Compact Camp Stove', content: 'versatile backpacking camp stove boils water quickly wide burner fuel efficient review' },
   { path: '/newsletter', title: 'Newsletter', content: 'newsletter placeholder page under construction sign up updates' },
 ];
 
